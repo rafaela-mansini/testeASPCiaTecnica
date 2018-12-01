@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Cadastrar Cliente";
+}
+
+<h2>Cadastrar</h2>
+<div class="row">
+    <form>
+        <div class="form-group col-md-12">
+            <label for="tipo_cliente">Tipo de Cliente <span class="text-danger">*</span></label>
+            <select id="tipo_cliente" name="tipo_cliente" class="form-control">
+                <option value="fisica">Pessoa Física</option>
+                <option value="juridica">Pessoa Jurídica</option>
+            </select>
+        </div>
+
+        <div id="pessoa_fisica">
+            <div class="form-group col-md-12">
+                <label for="cpf">CPF <span class="text-danger">*</span></label>
+                <input type="text" name="cpf" id="cpf" class="form-control" />
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="nome">Nome<span class="text-danger">*</span></label>
+                <input type="text" name="nome" id="nome" class="form-control" />
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="sobrenome">Sobrenome <small>(máximo 15 caracteres)</small> <span class="text-danger">*</span></label>
+                <input type="text" name="sobrenome" id="sobrenome" class="form-control" maxlength="15" />
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="nascimento">Data de Nascimento<span class="text-danger">*</span></label>
+                <input type="date" name="nascimento" id="nascimento" class="form-control" />
+            </div>
+        </div>
+
+        <div id="pessoa_juridica" class="hidden">
+            <div class="form-group col-md-12">
+                <label for="cnpj">CNPJ <span class="text-danger">*</span></label>
+                <input type="text" name="cnpj" id="cnpj" class="form-control" />
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="razao_social">Razão Social <span class="text-danger">*</span></label>
+                <input type="text" name="razao_social" id="razao_social" class="form-control" />
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="nome_fantasia">Nome Fantasia <span class="text-danger">*</span></label>
+                <input type="text" name="nome_fantasia" id="nome_fantasia" class="form-control" />
+            </div>
+
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="cep">CEP <span class="text-danger">*</span></label>
+            <input type="text" name="cep" id="cep" class="form-control" maxlength="8" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="logradouro">Logradouro <span class="text-danger">*</span></label>
+            <input type="text" name="logradouro" id="logradouro" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="numero">Nº <span class="text-danger">*</span></label>
+            <input type="text" name="numero" id="numero" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-5">
+            <label for="bairro">Bairro <span class="text-danger">*</span></label>
+            <input type="text" name="bairro" id="bairro" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-5">
+            <label for="cidade">Cidade <span class="text-danger">*</span></label>
+            <input type="text" name="cidade" id="cidade" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="uf">UF <span class="text-danger">*</span></label>
+            <input type="text" name="uf" id="uf" class="form-control" maxlength="8" />
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="complemento">Complemento</label>
+            <input type="text" name="complemento" id="complemento" class="form-control" />
+        </div>
+
+        <div class="form-group col-md-12">
+            <button class="btn btn-primary"><i class="glyphicon glyphicon-save"></i> Salvar</button>
+        </div>
+    </form>
+</div>

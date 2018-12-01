@@ -22,6 +22,12 @@ namespace Clientes
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/maskedinput").Include(
+                      "~/Scripts/jquery.maskedinput.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/geral").Include(
+                      "~/Scripts/geral.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));

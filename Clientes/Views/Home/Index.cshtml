@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Clientes.ViewModels.ClientesViewModel
+@{
     ViewBag.Title = "Gerenciador de Clientes";
 }
 
@@ -20,12 +21,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
-                        <td>john@example.com</td>
-                    </tr>
+                    @if (Model.ClientesPJ.Count == 0)
+                    {
+                        <tr><td colspan="4">Nenhum cadastro retornado.</td></tr>
+                    }
+                    else
+                    {
+                        foreach (var pessoaPJ in Model.ClientesPJ)
+                        {
+                            <tr>
+                                <td>@pessoaPJ.Documento</td>
+                                <td>@pessoaPJ.RazaoSocial</td>
+                                <td>@pessoaPJ.Nome</td>
+                                <td>
+                                    <a title="Editar" href="@Url.Action("Editar","Cliente", new { id = pessoaPJ.Id_cliente })" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <button onclick="excluirCliente('@pessoaPJ.Id_cliente')" title="Excluir" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+
                     <tr>
                 </tbody>
             </table>
@@ -39,18 +55,29 @@
                     <tr>
                         <th>CPF</th>
                         <th>Nome</th>
-                        <th>Nascimento</th>
                         <th>#</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
-                        <td>john@example.com</td>
-                    </tr>
-                    <tr>
+                    @if (Model.ClientesPF.Count == 0)
+                    {
+                        <tr><td colspan="3">Nenhum cadastro retornado.</td></tr>
+                    }
+                    else
+                    {
+                        foreach (var pessoaPF in Model.ClientesPF)
+                        {
+                            <tr>
+                                <td>@pessoaPF.Documento</td>
+                                <td>@pessoaPF.Nome</td>
+                                <td>
+                                    <a title="Editar" href="@Url.Action("Editar","Cliente", new { id = pessoaPF.Id_cliente })" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <button onclick="excluirCliente('@pessoaPF.Id_cliente')" title="Excluir" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+                                </td>
+                            </tr>
+                        }
+                    }
+
                 </tbody>
             </table>
         </div>

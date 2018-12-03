@@ -1,9 +1,28 @@
 ﻿$("#tipo_cliente").change(function () {
     if ($("#tipo_cliente").val() == "fisica") {
+
+        $("#cpf").attr("required", "required");
+        $("#nome").attr("required", "required");
+        $("#sobrenome").attr("required", "required");
+        $("#data_nascimento").attr("required", "required");
+
+        $("#cnpj").attr("required", "required");
+        $("#razao_social").removeAttr("required");
+        $("#nome_fantasia").removeAttr("required");
+
         $("#pessoa_juridica").addClass("hidden");
         $("#pessoa_fisica").removeClass("hidden");
     }
     else {
+        $("#cpf").removeAttr("required");
+        $("#nome").removeAttr("required");
+        $("#sobrenome").removeAttr("required");
+        $("#data_nascimento").removeAttr("required");
+
+        $("#cnpj").attr("required", "required");
+        $("#razao_social").attr("required", "required");
+        $("#nome_fantasia").attr("required", "required");
+
         $("#pessoa_fisica").addClass("hidden");
         $("#pessoa_juridica").removeClass("hidden");
     }
@@ -51,3 +70,14 @@ $(document).ready(function () {
     $("#cpf").mask("999.999.999-99");
     $("#cnpj").mask("999.999.999/9999-99");
 });
+
+function excluirCliente(id) {
+    if (confirm("Deseja realmente realizar esta ação?\nEla não poderá ser desfeita.")) {
+        $.post('/Cliente/Excluir', { idCliente: id }, function (a) {
+            if (a.sucesso == true) {
+                location.reload();
+            }
+        }, 'json');    
+    }
+    
+}

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Clientes.Models;
+using Clientes.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +12,17 @@ namespace Clientes.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            Cliente clientes = new Cliente();
+            List<Cliente> clientesPF = clientes.SelecionarPorTipo("fisica");
+            List<Cliente> clientesPJ = clientes.SelecionarPorTipo("juridica");
+
+            var viewModel = new ClientesViewModel
+            {
+                ClientesPF = clientesPF,
+                ClientesPJ = clientesPJ
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult About()
